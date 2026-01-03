@@ -4,13 +4,39 @@
  */
 package com.obcodes.librarymanagementsystem;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
  * @author Obakeng Phale
  */
 public class Member {
-   private long memberID;
+   private final long memberID;
    private String name;
    private ArrayList<Book> borrowedBooks;
+   
+   public Member(String name){
+   this.memberID = generateMemberID();
+   this.name = name;
+   this.borrowedBooks = new ArrayList<>();
+   
+   }
+   //auto-generate ID
+   private long generateMemberID(){
+       long min = 000000000000L;
+       long max = 999999999999L;
+       
+       Random random = new Random();
+       return min + (long)(random.nextDouble() * (max - min + 1));
+   }
+   
+   public long getMemberID(){
+       return memberID;
+   }
+   public String borrowBook(String title, String author){
+       Book book = new Book(title, author);
+       //problem
+       return borrowedBooks.add(book);
+   }
+   
 }

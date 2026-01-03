@@ -11,6 +11,11 @@ package com.obcodes.librarymanagementsystem;
 public class LibraryManagementSystem {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        //tests to see if the classes and methods work as intended.
+        Book book = new Book("Introduction to Slavery", "John Van Reebek" );
+        Member member = new Member("Lukas Mashamahite");
+        System.out.println("Book: ");
+        System.out.println("Member ID: "+ member.getMemberID());
+        
     }
 }
