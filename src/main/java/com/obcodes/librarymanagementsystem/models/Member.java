@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.obcodes.librarymanagementsystem;
+package com.obcodes.librarymanagementsystem.models;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -33,10 +33,24 @@ public class Member {
    public long getMemberID(){
        return memberID;
    }
-   public String borrowBook(String title, String author){
-       Book book = new Book(title, author);
-       //problem
-       return borrowedBooks.add(book);
+   public boolean borrowBook(Book book){
+       if (borrowedBooks.size()<5){
+           borrowedBooks.add(book);
+           return true;
+           
+       }
+       
+       return false;
+   }
+   
+   public boolean returnBook(Book book){
+   
+       return borrowedBooks.remove(book);
+       
+   }
+   
+   public ArrayList<Book> getBorrowedBooks(){
+    return borrowedBooks;
    }
    
 }
